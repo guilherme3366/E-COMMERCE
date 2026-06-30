@@ -25,13 +25,19 @@ typography:
     fontWeight: 400
     lineHeight: 1.6
 rounded:
+  xs: "2px"
   sm: "8px"
   md: "12px"
   lg: "16px"
+  xl: "20px"
+  xxl: "24px"
+  full: "30px"
 spacing:
+  xs: "8px"
   sm: "10px"
   md: "22px"
   lg: "40px"
+  xl: "60px"
 components:
   button-primary:
     backgroundColor: "{colors.primary}"

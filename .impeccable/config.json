@@ -1,0 +1,56 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-color",
+        "value": "#ef4444",
+        "reason": "Intentional color for mockup window buttons (system UI simulation)",
+        "createdAt": "2026-06-30T15:03:18.432Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(0, 0, 0, 0.15)",
+        "reason": "Intentional shadow overlay effect",
+        "createdAt": "2026-06-30T15:03:22.737Z"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "10px",
+        "reason": "Intentional intermediate radius for specific UI components",
+        "createdAt": "2026-06-30T15:03:22.817Z"
+      },
+      {
+        "rule": "overused-font",
+        "value": "plus jakarta sans",
+        "reason": "Confirmed as project brand font per DESIGN.md",
+        "createdAt": "2026-06-30T15:03:22.897Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#f59e0b",
+        "reason": "Intentional orange for mockup system UI simulation (matches warning accent)",
+        "createdAt": "2026-06-30T15:03:28.550Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#10b981",
+        "reason": "Intentional green for mockup system UI simulation (matches success accent)",
+        "createdAt": "2026-06-30T15:03:28.626Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#6366f1",
+        "reason": "Gradient color for primary-to-secondary blend",
+        "createdAt": "2026-06-30T15:03:28.697Z"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#06b6d4",
+        "reason": "Gradient color for secondary-to-cyan blend",
+        "createdAt": "2026-06-30T15:03:28.767Z"
+      }
+    ]
+  }
+}

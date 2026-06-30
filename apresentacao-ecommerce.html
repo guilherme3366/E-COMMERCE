@@ -180,11 +180,18 @@
             transition: all 0.2s ease;
         }
 
-        .btn-icon:hover {
+        .btn-icon:hover,
+        .btn-icon:focus {
             border-color: var(--primary);
             color: var(--primary);
             transform: translateY(-2px);
             box-shadow: var(--shadow-sm);
+            outline: none;
+        }
+
+        .btn-icon:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
         }
 
         .btn-icon svg {
@@ -245,8 +252,8 @@
         .mode-scroll .slides-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 60px;
-            padding: 40px 10%;
+            gap: 80px;
+            padding: 60px 10%;
             max-width: 1400px;
             margin: 0 auto;
             width: 100%;
@@ -254,9 +261,9 @@
 
         .mode-scroll .slide {
             min-height: auto;
-            border-radius: 24px;
+            border-radius: var(--rounded-lg);
             border: 1px solid var(--border-color);
-            padding: 50px;
+            padding: 60px;
             background-color: var(--bg-card);
             box-shadow: var(--shadow-sm);
             opacity: 1 !important;
@@ -511,20 +518,23 @@
 
         .slide h2 {
             font-size: 40px;
-            margin-bottom: 24px;
+            margin-bottom: 22px;
             background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             position: relative;
             display: inline-block;
             text-align: center;
             align-self: center;
+            line-height: 1.2;
+            text-wrap: balance;
         }
 
         .slide h2::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
             width: 60px;
@@ -534,9 +544,10 @@
         }
 
         .slide p {
-            font-size: 17px;
+            font-size: 16px;
             color: var(--text-muted);
-            line-height: 1.7;
+            line-height: 1.6;
+            max-width: 75ch;
         }
 
         /* Slide Capa (Intro) */

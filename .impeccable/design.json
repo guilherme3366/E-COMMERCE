@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-30T14:43:00Z",
+  "title": "Design System: E-Commerce Slides",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Nebula Purple", "canonical": "oklch(60% 0.25 300)", "tonalRamp": ["#3b0764", "#581c87", "#701a75", "#86198f", "#8b5cf6", "#a78bfa", "#c084fc", "#ddd6fe"] },
+      "secondary": { "role": "secondary", "displayName": "Electric Cyan", "canonical": "oklch(60% 0.2 230)", "tonalRamp": ["#0f172a", "#1e293b", "#334155", "#475569", "#3b82f6", "#60a5fa", "#93c5fd", "#bfdbfe"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Slide headers." },
+      "body": { "displayName": "Body", "purpose": "Prose descriptions." }
+    },
+    "shadows": [
+      { "name": "glow-primary", "value": "rgba(139, 92, 246, 0.25)", "purpose": "Primary button hover outline glow." }
+    ],
+    "motion": [
+      { "name": "ease-out-quint", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Fluid slide transition easing." }
+    ],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main action button.",
+      "html": "<button class=\"ds-btn-primary\">Começar</button>",
+      "css": ".ds-btn-primary { background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%); color: #090d16; padding: 14px 28px; border-radius: 12px; font-size: 16px; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Neon Engine Room",
+    "overview": "O sistema visual é projetado como uma cabine de controle de alto desempenho, empregando um tema escuro e profundo.",
+    "keyCharacteristics": [
+      "Fundo escuro e imersivo com contraste tipográfico nítido.",
+      "Gradientes violeta-azul dinâmicos que sinalizam interações de sucesso e fluxos de dados."
+    ],
+    "rules": [
+      { "name": "The 10% Accent Rule", "body": "O gradiente violeta vibrante e o cian neon devem ser reservados para elementos críticos, ocupando menos de 10% da área útil.", "section": "colors" }
+    ],
+    "dos": [
+      "Do manter contraste mínimo de 4.5:1 em todos os textos.",
+      "Do usar text-wrap: balance nos títulos dos slides."
+    ],
+    "donts": [
+      "Don't usar texto em cinza claro sem contraste.",
+      "Don't aplicar listras de bordas coloridas laterais como decoração."
+    ]
+  }
+}

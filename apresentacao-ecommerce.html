@@ -364,7 +364,9 @@
             height: 100%;
             width: 0%;
             background: var(--primary-gradient);
-            transition: width 0.3s ease;
+            transition: transform 0.3s ease;
+            transform-origin: left center;
+            will-change: transform;
         }
 
         .nav-controls {
@@ -1428,6 +1430,286 @@
                 border-bottom: 1px solid #ddd !important;
             }
         }
+
+        /* ==========================================================================
+           SCROLL-DRIVEN ANIMATIONS (Overdrive Mode)
+           ========================================================================== */
+        @supports (animation-timeline: scroll()) {
+            /* ─────────────────────────────────────────────────────────────────────
+               Primary Timeline: Scrolls from viewport top to viewport bottom
+               ───────────────────────────────────────────────────────────────────── */
+
+            .mode-scroll .slide {
+                animation: slideReveal linear forwards;
+                animation-timeline: view();
+                animation-range: entry 0% cover 40%;
+            }
+
+            @keyframes slideReveal {
+                from {
+                    opacity: 0;
+                    transform: translateY(40px) scale(0.97);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+
+            /* Cards & Content Boxes */
+            .mode-scroll .content-box {
+                animation: cardFadeScale linear forwards;
+                animation-timeline: view();
+                animation-range: entry 10% cover 40%;
+            }
+
+            @keyframes cardFadeScale {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px) scale(0.95);
+                    border-color: var(--border-color);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                    border-color: var(--border-color);
+                }
+            }
+
+            /* Benefit Cards with stagger */
+            .mode-scroll .benefit-card {
+                animation: benefitReveal linear forwards;
+                animation-timeline: view();
+                animation-range: entry 15% cover 50%;
+            }
+
+            .mode-scroll .benefit-card:nth-child(2) {
+                animation-range: entry 20% cover 55%;
+            }
+
+            .mode-scroll .benefit-card:nth-child(3) {
+                animation-range: entry 25% cover 60%;
+            }
+
+            .mode-scroll .benefit-card:nth-child(4) {
+                animation-range: entry 30% cover 65%;
+            }
+
+            @keyframes benefitReveal {
+                from {
+                    opacity: 0;
+                    transform: translateY(24px) scale(0.93);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+
+            /* Tech Badges cascade */
+            .mode-scroll .tech-badge {
+                animation: badgeFloat linear forwards;
+                animation-timeline: view();
+                animation-range: entry 25% cover 50%;
+            }
+
+            .mode-scroll .tech-badge:nth-child(1) { animation-range: entry 25% cover 50%; }
+            .mode-scroll .tech-badge:nth-child(2) { animation-range: entry 28% cover 53%; }
+            .mode-scroll .tech-badge:nth-child(3) { animation-range: entry 31% cover 56%; }
+            .mode-scroll .tech-badge:nth-child(4) { animation-range: entry 34% cover 59%; }
+            .mode-scroll .tech-badge:nth-child(5) { animation-range: entry 37% cover 62%; }
+
+            @keyframes badgeFloat {
+                from {
+                    opacity: 0;
+                    transform: translateY(16px) translateX(-8px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) translateX(0);
+                }
+            }
+
+            /* Flow Nodes - animated reveal */
+            .mode-scroll .flow-node {
+                animation: nodeReveal linear forwards;
+                animation-timeline: view();
+                animation-range: entry 20% cover 50%;
+            }
+
+            .mode-scroll .flow-row:nth-child(1) .flow-node:nth-child(1) { animation-range: entry 20% cover 50%; }
+            .mode-scroll .flow-row:nth-child(1) .flow-node:nth-child(3) { animation-range: entry 25% cover 55%; }
+            .mode-scroll .flow-row:nth-child(1) .flow-node:nth-child(5) { animation-range: entry 30% cover 60%; }
+            .mode-scroll .flow-row:nth-child(1) .flow-node:nth-child(7) { animation-range: entry 35% cover 65%; }
+
+            .mode-scroll .flow-row:nth-child(3) .flow-node:nth-child(1) { animation-range: entry 40% cover 70%; }
+            .mode-scroll .flow-row:nth-child(3) .flow-node:nth-child(3) { animation-range: entry 35% cover 65%; }
+            .mode-scroll .flow-row:nth-child(3) .flow-node:nth-child(5) { animation-range: entry 30% cover 60%; }
+            .mode-scroll .flow-row:nth-child(3) .flow-node:nth-child(7) { animation-range: entry 25% cover 55%; }
+
+            @keyframes nodeReveal {
+                from {
+                    opacity: 0;
+                    transform: scale(0.85) translateY(16px);
+                    border-color: var(--border-color);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1) translateY(0);
+                    border-color: var(--border-color);
+                }
+            }
+
+            /* Mockup Cards cascade */
+            .mode-scroll .mockup-card {
+                animation: mockupSlide linear forwards;
+                animation-timeline: view();
+                animation-range: entry 15% cover 50%;
+            }
+
+            .mode-scroll .mockup-card:nth-child(1) { animation-range: entry 15% cover 50%; }
+            .mode-scroll .mockup-card:nth-child(2) { animation-range: entry 20% cover 55%; }
+            .mode-scroll .mockup-card:nth-child(3) { animation-range: entry 25% cover 60%; }
+            .mode-scroll .mockup-card:nth-child(4) { animation-range: entry 30% cover 65%; }
+
+            @keyframes mockupSlide {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px) scale(0.96);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+
+            /* Architecture Nodes */
+            .mode-scroll .arch-node {
+                animation: archReveal linear forwards;
+                animation-timeline: view();
+                animation-range: entry 20% cover 50%;
+            }
+
+            .mode-scroll .arch-node:nth-child(1) { animation-range: entry 20% cover 50%; }
+            .mode-scroll .arch-node:nth-child(3) { animation-range: entry 25% cover 55%; }
+            .mode-scroll .arch-node:nth-child(5) { animation-range: entry 30% cover 60%; }
+
+            @keyframes archReveal {
+                from {
+                    opacity: 0;
+                    transform: translateY(24px) rotateX(10deg) scale(0.94);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) rotateX(0) scale(1);
+                }
+            }
+
+            /* Timeline Cards - sweep from left */
+            .mode-scroll .timeline-card {
+                animation: timelineSwipe linear forwards;
+                animation-timeline: view();
+                animation-range: entry 15% cover 50%;
+            }
+
+            .mode-scroll .timeline-card:nth-child(1) { animation-range: entry 15% cover 50%; }
+            .mode-scroll .timeline-card:nth-child(2) { animation-range: entry 20% cover 55%; }
+            .mode-scroll .timeline-card:nth-child(3) { animation-range: entry 25% cover 60%; }
+            .mode-scroll .timeline-card:nth-child(4) { animation-range: entry 30% cover 65%; }
+
+            @keyframes timelineSwipe {
+                from {
+                    opacity: 0;
+                    transform: translateX(-30px) translateY(8px);
+                    border-color: var(--border-color);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0) translateY(0);
+                    border-color: var(--border-color);
+                }
+            }
+
+            /* Section Headings - gradient slide up */
+            .mode-scroll .slide h2 {
+                animation: headlineRise linear forwards;
+                animation-timeline: view();
+                animation-range: entry 0% cover 30%;
+            }
+
+            @keyframes headlineRise {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    letter-spacing: 0.05em;
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                    letter-spacing: -0.5px;
+                }
+            }
+
+            /* Glow effect on primary elements during scroll */
+            .mode-scroll .content-box::before {
+                animation: glowPulse linear forwards;
+                animation-timeline: view();
+                animation-range: entry 10% cover 40%;
+            }
+
+            @keyframes glowPulse {
+                from {
+                    opacity: 0;
+                    width: 2px;
+                }
+                to {
+                    opacity: 1;
+                    width: 4px;
+                }
+            }
+        }
+
+        /* Fallback for non-supporting browsers - fade-on-scroll via JS */
+        @supports not (animation-timeline: scroll()) {
+            .mode-scroll .slide,
+            .mode-scroll .content-box,
+            .mode-scroll .benefit-card,
+            .mode-scroll .tech-badge,
+            .mode-scroll .flow-node,
+            .mode-scroll .mockup-card,
+            .mode-scroll .arch-node,
+            .mode-scroll .timeline-card {
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .mode-scroll .slide.in-view,
+            .mode-scroll .content-box.in-view,
+            .mode-scroll .benefit-card.in-view,
+            .mode-scroll .tech-badge.in-view,
+            .mode-scroll .flow-node.in-view,
+            .mode-scroll .mockup-card.in-view,
+            .mode-scroll .arch-node.in-view,
+            .mode-scroll .timeline-card.in-view {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Reduce motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .mode-scroll .slide,
+            .mode-scroll .content-box,
+            .mode-scroll .benefit-card,
+            .mode-scroll .tech-badge,
+            .mode-scroll .flow-node,
+            .mode-scroll .mockup-card,
+            .mode-scroll .arch-node,
+            .mode-scroll .timeline-card {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
     </style>
 </head>
 <body class="theme-dark mode-presentation">
@@ -2349,6 +2631,49 @@
 
         // Initialize application layout state
         window.onload = initApp;
+
+        // =====================================================================
+        // SCROLL-DRIVEN ANIMATIONS FALLBACK (Firefox & older browsers)
+        // Detects if animation-timeline is supported; if not, uses IntersectionObserver
+        // =====================================================================
+        (function initScrollAnimationsFallback() {
+            // Check if animation-timeline is supported
+            const supportsScrollTimeline = CSS.supports('animation-timeline', 'scroll()');
+
+            if (supportsScrollTimeline) {
+                return; // Native support, no fallback needed
+            }
+
+            // Fallback: Use IntersectionObserver to add .in-view class
+            const elementsToObserve = document.querySelectorAll(
+                '.mode-scroll .slide, ' +
+                '.mode-scroll .content-box, ' +
+                '.mode-scroll .benefit-card, ' +
+                '.mode-scroll .tech-badge, ' +
+                '.mode-scroll .flow-node, ' +
+                '.mode-scroll .mockup-card, ' +
+                '.mode-scroll .arch-node, ' +
+                '.mode-scroll .timeline-card'
+            );
+
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, observerOptions);
+
+            elementsToObserve.forEach((el) => observer.observe(el));
+        })();
     </script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
 </body>
 </html>
